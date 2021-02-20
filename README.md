@@ -14,7 +14,16 @@ and display the results. As there are no tests, to register completion, run `lea
 
 The URL for the API is
 
-`https://api.giphy.com/v1/gifs/search?q=YOUR QUERY HERE&api_key=dc6zaTOxFJmzC&rating=g`
+`https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=dc6zaTOxFJmzC&rating=g`
+
+<!-- 
+? => Question mark indicates starting of query parameters.  
+q => First Parameter, we set it to dolphin 
+api_key => Input api_key here 
+rating = g is the value for the rating 
+
+-->
+
 
 While the above API key _may_ work, we recommend creating your own API key by 
 following the [instructions on Giphy's developer site][create_key]. Creating a key is free
@@ -64,7 +73,8 @@ You should get back an array of objects, each containing information about a par
 **Note:** Notice there are many URL keys on each image object. The first `url`
 key, just below `type`, `id`, and `slug`, will bring you to the images page on
 [giphy.com](https://giphy.com/). We only want the path to the actual image, which is found
-at `images.original.url`. Using other `url` keys may cause CORS issues.
+at `images.original.url`. Using other `url` keys may cause CORS issues. 
+<!-- CORS => Cross Origin Resource Sharing. Has to do with what servers are able to access resources hosted on a particular server.    -->
 
 ### Your Components
 
@@ -103,12 +113,13 @@ for the Giphy search. The text input should be a _controlled component_ that
 stores the value of the input in its component state and renders the DOM
 accordingly. The React component is always in charge of what the DOM looks like.
 
+<!-- Control Component means that when we're interacting with an input we're not interacting with the HTML we are sending an event to react and it's updating the state of the component and that updates the value of the input. The value of the input is being set by react state and we can't change the value of the input without updating the state.  -->
+
+
 `<GifSearch />` should receive a callback prop from its parent. On a submit
 event, it should invoke that callback prop with the value of the text input. It
 is this callback function, defined in `<GifListContainer />`, that will actually
 query the API with the text the user has entered.
-
-When finished, submit your work using `learn submit`.
 
 ##### Container vs. Presentational Components
 
